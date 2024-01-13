@@ -138,7 +138,7 @@ app.put("/api/charging-stations/:id", (req, res) => {
     if (stationIndex !== -1) {
         chargingStations[stationIndex] = {
             id: chargingStations[stationIndex].id,
-            updatedStation,
+            ...updatedStation,
         };
 
         let editedStation = chargingStations[stationIndex];
