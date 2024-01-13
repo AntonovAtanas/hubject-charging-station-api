@@ -136,10 +136,15 @@ app.put("/api/charging-stations/:id", (req, res) => {
     );
 
     if (stationIndex !== -1) {
-        chargingStations[stationIndex].name = updatedStation.name;
-        chargingStations[stationIndex].address = updatedStation.address;
-        chargingStations[stationIndex].price = updatedStation.price;
-        chargingStations[stationIndex].connectors = updatedStation.connectors;
+        chargingStations[stationIndex] = {
+            ...chargingStations[stationIndex].id,
+            updatedStation,
+        };
+
+        // chargingStations[stationIndex].name = updatedStation.name;
+        // chargingStations[stationIndex].address = updatedStation.address;
+        // chargingStations[stationIndex].price = updatedStation.price;
+        // chargingStations[stationIndex].connectors = updatedStation.connectors;
 
         let editedStation = chargingStations[stationIndex];
 
